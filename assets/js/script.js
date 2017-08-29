@@ -22,7 +22,7 @@ var crystal4Num = "";
 
 var numberRand = 0;
 
-var sumOfCrystals = "";
+var crystalValues = "";
 
 var score = "";
 var lives = "";
@@ -44,54 +44,59 @@ $('#generatebtn').click(function() {
 
 // crystals
 
-values = function() {
+$("#crystalValues").html(function() {
+
+	function getRandomArbitrary(min, max) {
+ 	min = Math.ceil(min);
+ 	max = Math.floor(max);
+ 	return Math.floor(Math.random() * (max - min)) + min; 
+ 	console.log()
+	}
 
 	$('#crystal1').click(function() {
-		minNumber = 1;
-		maxNumber = 25;
-		crystal1Num = Math.floor(Math.random() * (maxNumber + 1) + minNumber);
-		console.log()
-		$('#crystalValues').html(crystal1Num);
-	})
+       crystal1Num = getRandomArbitrary(1,25);
+       $("#crystalValues").html(crystal1Num);
+       console.log()
+    })
 
 	$('#crystal2').click(function() {
-		minNumber = 26;
-		maxNumber = 50;
-		crystal2Num = Math.floor(Math.random() * (maxNumber + 1) + minNumber);
-		console.log()
-		$('#crystalValues').html(crystal2Num);
-	})
+       crystal2Num = getRandomArbitrary(26,50);
+       $("#crystalValues").html(crystal2Num);
+       console.log()
+    })
 
 	$('#crystal3').click(function() {
-		minNumber = 51;
-		maxNumber = 75;
-		crystal3Num = Math.floor(Math.random() * (maxNumber + 1) + minNumber);
-		console.log()
-		$('#crystalValues').html(crystal3Num);
-	})
+       crystal3Num = getRandomArbitrary(51,75);
+       $("#crystalValues").html(crystal3Num);
+       console.log()
+    })
 
 	$('#crystal4').click(function() {
-		minNumber = 76;
-		maxNumber = 100;
-		crystal4Num = Math.floor(Math.random() * (maxNumber + 1) + minNumber);
-		console.log()
-		$('#crystalValues').html(crystal4Num);
-	})
+       crystal4Num = getRandomArbitrary(76,100);
+       $("#crystalValues").html(crystal4Num);
+       console.log()
+    })
+
+    $('#crystalVaues').add(crystal1Num, crystal2Num, crystal3Num, crystal4Num);
+    console.log()
+
+})
 
 
     // here, you have your sum
-    crystal1Num = parseInt(crystal1Num);
-    crystal2Num = parseInt(crystal2Num);
-    crystal3Num = parseInt(crystal3Num);
-    crystal4Num = parseInt(crystal4Num);
 
-    result = Math.pow(crystal1Num, crystal2Num, crystal3Num, crystal4Num);
-	$("#crystalValues").html(result);
-	console.log()
+ //    var newResult = crystal1Num, crystal2Num, crystal3Num, crystal4Num;
+ //    var result = crystal1Num, crystal2Num, crystal3Num, crystal4Num;
+	// $("#crystalValues").html(result + newResult);
+	// console.log()
 
-}
+	//if the sum of the crystals matches the numberRand then you get a point
 
-crystalValues();
+	// if (result === numberRand);
+	// 	alert("You Win");
+	// else if(result > numberRand);
+	// 	alert("You Lose!");
+
 
 
 })
