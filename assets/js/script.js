@@ -44,7 +44,6 @@ $('#generatebtn').click(function() {
 
 // crystals
 
-$("#crystalValues").html(function() {
 
 	function getRandomArbitrary(min, max) {
  	min = Math.ceil(min);
@@ -56,31 +55,35 @@ $("#crystalValues").html(function() {
 	$('#crystal1').click(function() {
        crystal1Num = getRandomArbitrary(1,25);
        $("#crystalValues").html(crystal1Num);
-       console.log()
+       crystalValue = parseInt($("#crystalValues").html());
+       console.log(crystalValue)
     })
 
 	$('#crystal2').click(function() {
        crystal2Num = getRandomArbitrary(26,50);
        $("#crystalValues").html(crystal2Num);
-       console.log()
+       crystalValue = parseInt($("#crystalValues").html());
+       console.log(crystalValue)
     })
 
 	$('#crystal3').click(function() {
        crystal3Num = getRandomArbitrary(51,75);
        $("#crystalValues").html(crystal3Num);
-       console.log()
+       crystalValue = parseInt($("#crystalValues").html());
+       console.log(crystalValue)
     })
 
 	$('#crystal4').click(function() {
        crystal4Num = getRandomArbitrary(76,100);
        $("#crystalValues").html(crystal4Num);
-       console.log()
+       crystalValue = parseInt($("#crystalValues").html());
+       console.log(crystalValue)
     })
 
-    $('#crystalVaues').add(crystal1Num, crystal2Num, crystal3Num, crystal4Num);
-    console.log()
-
-})
+	$('.crystalBtn').click(function() {
+		$('#crystalValues').html(function(i, val) { return val * crystalValue });
+	})
+	
 
 
     // here, you have your sum
