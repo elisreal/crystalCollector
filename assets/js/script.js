@@ -116,14 +116,18 @@ winLoss();
 
 // Reset the Game
 	$('#generatebtn').click(function() {
-		function reset() {
-			crystalValue = 0;
-			$('#crystalValues').empty(crystalValue);
-			$('#crystalValues').html(crystalValue)
-			console.log(crystalValue)
-		}
-		$('#generatebtn').html("Generate Random Number");
-		reset();
-	})
+        function reset() {
+            crystal1Num = 0;
+            crystal2Num = 0;
+            crystal3Num = 0;
+            crystal4Num = 0;
+            crystalValue = 0;
+            $('#crystalValues').empty(crystalValue);
+            $('#crystalValues').html(crystalValue)
+            console.log(crystalValue)
+        }
+        $('#generatebtn').html("Generate Random Number");
+        reset();
+    })
 
 })
