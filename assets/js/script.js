@@ -11,21 +11,17 @@
 
 
 // variables 
-
-var game = {};
-var newGame = [];
-
-var crystal1Num = "";
-var crystal2Num = "";
-var crystal3Num = "";
-var crystal4Num = "";
+var crystal1Num = 0;
+var crystal2Num = 0;
+var crystal3Num = 0;
+var crystal4Num = 0;
 
 var numberRand = 0;
 
-var crystalValues = "";
+var crystalValue = 0;
 
-var score = "";
-var lives = "";
+var score = 0;
+var lives = 10;
 
 //functions
 
@@ -33,73 +29,101 @@ var lives = "";
 $(document).ready(function() {
 
 
+
 // random number generator
 $('#generatebtn').click(function() {
 	minNumber = 1;
-	maxNumber = 100;
+	maxNumber = 20;
 	numberRand = Math.floor(Math.random() * (maxNumber + 1) + minNumber);
 	console.log()
 	$('#numberRand').html(numberRand);
 })
 
 // crystals
-
-
 	function getRandomArbitrary(min, max) {
- 	min = Math.ceil(min);
- 	max = Math.floor(max);
- 	return Math.floor(Math.random() * (max - min)) + min; 
- 	console.log()
+ 		min = Math.ceil(min);
+ 		max = Math.floor(max);
+ 		return Math.floor(Math.random() * (max - min)) + min; 
+ 		console.log()
 	}
 
 	$('#crystal1').click(function() {
-       crystal1Num = getRandomArbitrary(1,25);
-       $("#crystalValues").html(crystal1Num);
-       crystalValue = parseInt($("#crystalValues").html());
-       console.log(crystalValue)
+       crystal1Num = crystal1Num + getRandomArbitrary(1,5);
+       $("#crystalValues").text(crystal1Num);
+       updateCrystalResult();
+       console.log(crystalValues)
     })
 
 	$('#crystal2').click(function() {
-       crystal2Num = getRandomArbitrary(26,50);
+       crystal2Num = crystal2Num + getRandomArbitrary(6,10);
        $("#crystalValues").html(crystal2Num);
-       crystalValue = parseInt($("#crystalValues").html());
+       updateCrystalResult();
        console.log(crystalValue)
     })
 
 	$('#crystal3').click(function() {
-       crystal3Num = getRandomArbitrary(51,75);
+       crystal3Num = crystal3Num + getRandomArbitrary(11,15);
        $("#crystalValues").html(crystal3Num);
-       crystalValue = parseInt($("#crystalValues").html());
+       updateCrystalResult();
        console.log(crystalValue)
     })
 
 	$('#crystal4').click(function() {
-       crystal4Num = getRandomArbitrary(76,100);
+       crystal4Num = crystal4Num + getRandomArbitrary(16,20);
        $("#crystalValues").html(crystal4Num);
-       crystalValue = parseInt($("#crystalValues").html());
+       updateCrystalResult();
        console.log(crystalValue)
     })
-
-	$('.crystalBtn').click(function() {
-		$('#crystalValues').html(function(i, val) { return val * crystalValue });
-	})
-	
 
 
     // here, you have your sum
 
- //    var newResult = crystal1Num, crystal2Num, crystal3Num, crystal4Num;
- //    var result = crystal1Num, crystal2Num, crystal3Num, crystal4Num;
-	// $("#crystalValues").html(result + newResult);
-	// console.log()
+    function updateCrystalResult() {
+    	crystalValue = crystal1Num + crystal2Num + crystal3Num + crystal4Num;
+    	$('#crystalValues').html(crystalValue);
+    	console.log()
+    }
 
 	//if the sum of the crystals matches the numberRand then you get a point
 
-	// if (result === numberRand);
-	// 	alert("You Win");
-	// else if(result > numberRand);
-	// 	alert("You Lose!");
+	function winLoss() {
+		var lives = 10;
+		$('.crystalBtn').click(function() {
+			if(crystalValue === numberRand) {
+				alert("You Win!");
+				$('#generatebtn').html("Play Again?!")
+				score += 10;
+				$('#score').html(score);
+				if(score === 100) {
+					alert("Congratulations!! New High Score!!");
+				}
+			}
 
+			if(crystalValue > numberRand) {
+				alert("You Lose!");
+				$('#generatebtn').html("Play Again?!")
+				lives -= 1;
+				$('#lives').html(lives);
+				if(lives === 0) {
+					alert("Game Over!!!");
+					console.log("Game Over!!!");
+				}
+			}
+		})
+	}
 
+winLoss();
+
+// Reset the Game
+	$('#generatebtn').click(function() {
+		function reset() {
+			crystalValue = 0;
+			$('#crystalValues').empty(crystalValue);
+			$('#crystalValues').html(crystalValue)
+			console.log(crystalValue)
+		}
+		$('#generatebtn').html("Generate Random Number");
+		reset();
+	})
 
 })

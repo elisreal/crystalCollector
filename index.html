@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Crystal Collector</title>
 
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+
     <!-- Added link to the jQuery Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -17,9 +19,12 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/styles.css">
 
 </head>
-	<body>
+	<body class="mainBody">
 		<div class="container">
 			<div class="jumbotron text-center">
+				<div class="row">
+					<img class="logo" src="assets/images/Coin-Collector.png" alt="logo">
+				</div>
 				<div class="randNumContainer">
 					<button id="generatebtn" class="btn btn-default btn-lg btn-primary">
 					Generate Random Number
@@ -28,20 +33,31 @@
 				</div>
 				<div class="valuesContainer">
 					<h1 id="crystalValues">0</h1>
+					<p>YOUR NUMBER</p>
 				</div>
 				<div class="btnContainer container text-center">
 					<button id="crystal1" class="btn btn-default btn-lg btn-primary crystalBtn">
-					Crystal 1
+						<img class="button" src="assets/images/gold.gif" alt="goldCoin">
 					</button>
 					<button id="crystal2" class="btn btn-default btn-lg btn-primary crystalBtn">
-					Crystal 2
+						<img class="button" src="assets/images/purp.gif" alt="purpleCoin">
 					</button>
 					<button id="crystal3" class="btn btn-default btn-lg btn-primary crystalBtn">
-					Crystal 3
+						<img class="button" src="assets/images/red.gif" alt="redCoin">
 					</button>
 					<button id="crystal4" class="btn btn-default btn-lg btn-primary crystalBtn">
-					Crystal 4
+						<img class="button" src="assets/images/teal.gif" alt="tealCoin">
 					</button>
+				</div>
+				<div class="row">
+					<div class="col col-sm-6">
+						<h1 id="score">0</h1>
+						<p>SCORE</p>
+					</div>
+					<div class="col col-sm-6">
+						<h1 id="lives">0</h1>
+						<p>LIVES</p>
+					</div>
 				</div>
 			</div>
 		</div>

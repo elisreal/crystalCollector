@@ -1,8 +1,85 @@
+body.mainBody {
+	background-image: url("../images/bg.jpg");
+	background-repeat: no-repeat;
+	background-size: fill;
+	background-position: center top;
+}
+
 .container {
 	margin-left: auto;
 	margin-right: auto;
 }
 
 .jumbotron {
-	margin-top: 30px;
+	background: none;
+}
+
+.logo {
+	height: 60px;
+	margin: auto;
+	margin-bottom: 20px;
+}
+
+.btnContainer {
+	padding: 20px 0px;
+	margin: 20px 0px;
+	border-top-width: 3px;
+	border-top-color: #FFF;
+	border-top-style: solid;
+	border-bottom-width: 3px;
+	border-bottom-color: #FFF;
+	border-bottom-style: solid;
+}
+
+button#generatebtn.btn.btn-default.btn-lg.btn-primary {
+	background: none;
+	border-radius: 0px;
+	border-color: #FFF;
+	border-width: 3px;
+}
+
+#numberRand {
+	margin-bottom: 40px;
+}
+
+.crystalBtn {
+	padding: 5px 0px;
+}
+
+.crystalBtn.btn-primary {
+	background: none;
+	border: none;
+}
+
+img.button {
+	width: 120px;
+}
+
+#generatebtn {
+	font-family: 'Press Start 2P', cursive;
+	margin-bottom: 20px;
+}
+
+h1 {
+	color: #FFF;
+	font-family: 'Press Start 2P', cursive;
+	font-size: 20px;
+}
+
+h1#crystalValues {
+	margin-bottom: 5px;
+}
+
+p {
+	color: #FFF;
+	font-family: 'Press Start 2P', cursive;
+	font-size: 14px;
+}
+
+.jumbotron .h1, .jumbotron h1 {
+	color: #FFF;
+}
+
+.valuesContainer {
+	margin-top: 20px;
 }
