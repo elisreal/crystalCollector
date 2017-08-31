@@ -1,8 +1,8 @@
 // 1. initiate game
 // 2. load all images
 // 3. set variables
-// 4. generate random number with a forloop
-// 5. generate random value for crystals 
+// 4. generate random number with a function
+// 5. with that function generate random value for crystals 
 // 6. your score board should add up values of the crystals
 // 7. if the sum of your crystal values match the random number you win and get 10 points
 // 8. if you get 100 points you win and the game is over.
@@ -23,11 +23,25 @@ var crystalValue = 0;
 var score = 0;
 var lives = 10;
 
+music = document.getElementById("bgMusic");
+coinSound = document.getElementById("coinSound");
+gameOverMusic = document.getElementById("gameOver");
+
 //functions
 
 // StartGame
 $(document).ready(function() {
 
+	$(function () {
+     $("#playArea").hide();
+     music.play()
+ });
+
+
+$("#startbtn").click(function() {
+    $("#openScreen").hide();
+    $("#playArea").show();
+});
 
 
 // random number generator
@@ -51,6 +65,7 @@ $('#generatebtn').click(function() {
        crystal1Num = crystal1Num + getRandomArbitrary(1,5);
        $("#crystalValues").text(crystal1Num);
        updateCrystalResult();
+       coinSound.play();
        console.log(crystalValues)
     })
 
@@ -58,6 +73,7 @@ $('#generatebtn').click(function() {
        crystal2Num = crystal2Num + getRandomArbitrary(6,10);
        $("#crystalValues").html(crystal2Num);
        updateCrystalResult();
+       coinSound.play();
        console.log(crystalValue)
     })
 
@@ -65,6 +81,7 @@ $('#generatebtn').click(function() {
        crystal3Num = crystal3Num + getRandomArbitrary(11,15);
        $("#crystalValues").html(crystal3Num);
        updateCrystalResult();
+       coinSound.play();
        console.log(crystalValue)
     })
 
@@ -72,6 +89,7 @@ $('#generatebtn').click(function() {
        crystal4Num = crystal4Num + getRandomArbitrary(16,20);
        $("#crystalValues").html(crystal4Num);
        updateCrystalResult();
+       coinSound.play();
        console.log(crystalValue)
     })
 
@@ -87,7 +105,6 @@ $('#generatebtn').click(function() {
 	//if the sum of the crystals matches the numberRand then you get a point
 
 	function winLoss() {
-		var lives = 10;
 		$('.crystalBtn').click(function() {
 			if(crystalValue === numberRand) {
 				alert("You Win!");
@@ -105,8 +122,11 @@ $('#generatebtn').click(function() {
 				lives -= 1;
 				$('#lives').html(lives);
 				if(lives === 0) {
+					music.pause();
+					gameOverMusic.play();
 					alert("Game Over!!!");
 					console.log("Game Over!!!");
+					window.location.reload(true);
 				}
 			}
 		})
@@ -129,5 +149,6 @@ winLoss();
         $('#generatebtn').html("Generate Random Number");
         reset();
     })
+
 
 })

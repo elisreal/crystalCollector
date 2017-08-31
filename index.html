@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <title>Crystal Collector</title>
 
+    <audio id="bgMusic">
+  		<source src="assets/sounds/bgmusic.mp3" type="audio/mpeg">
+  	</audio>
+  	<audio id="coinSound">
+  		<source src="assets/sounds/coin.mp3" type="audio/mpeg">
+  	</audio>
+  	<audio id="gameOver">
+  		<source src="assets/sounds/gameover.mp3" type="audio/mpeg">
+  	</audio>
+
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 
     <!-- Added link to the jQuery Library -->
@@ -25,42 +35,55 @@
 				<div class="row">
 					<img class="logo" src="assets/images/Coin-Collector.png" alt="logo">
 				</div>
-				<div class="randNumContainer">
-					<button id="generatebtn" class="btn btn-default btn-lg btn-primary">
-					Generate Random Number
-					</button>
-					<h1 id="numberRand">0</h1>
-				</div>
-				<div class="valuesContainer">
-					<h1 id="crystalValues">0</h1>
-					<p>YOUR NUMBER</p>
-				</div>
-				<div class="btnContainer container text-center">
-					<button id="crystal1" class="btn btn-default btn-lg btn-primary crystalBtn">
-						<img class="button" src="assets/images/gold.gif" alt="goldCoin">
-					</button>
-					<button id="crystal2" class="btn btn-default btn-lg btn-primary crystalBtn">
-						<img class="button" src="assets/images/purp.gif" alt="purpleCoin">
-					</button>
-					<button id="crystal3" class="btn btn-default btn-lg btn-primary crystalBtn">
-						<img class="button" src="assets/images/red.gif" alt="redCoin">
-					</button>
-					<button id="crystal4" class="btn btn-default btn-lg btn-primary crystalBtn">
-						<img class="button" src="assets/images/teal.gif" alt="tealCoin">
+				<div id="openScreen">
+					<p class="instructions">To start click the "Generate Random Number Button. Once the number is on the board, use the coins to try and match the number. If you match the number, YOU WIN!!. If you go over, YOU LOSE!!!
+					</p>
+					<p class="instructions">Good Luck!!</p>
+					<button id="startbtn" class="btn btn-default btn-lg btn-primary">
+					START GAME
 					</button>
 				</div>
-				<div class="row">
-					<div class="col col-sm-6">
-						<h1 id="score">0</h1>
-						<p>SCORE</p>
+				<div id="playArea">
+					<div class="randNumContainer">
+						<button id="generatebtn" class="btn btn-default btn-lg btn-primary">
+						Generate Random Number
+						</button>
+						<h1 id="numberRand">0</h1>
 					</div>
-					<div class="col col-sm-6">
-						<h1 id="lives">0</h1>
-						<p>LIVES</p>
+					<div class="valuesContainer">
+						<h1 id="crystalValues">0</h1>
+						<p>YOUR NUMBER</p>
+					</div>
+					<div class="btnContainer container text-center">
+						<button id="crystal1" class="btn btn-default btn-lg btn-primary crystalBtn">
+							<img class="button" src="assets/images/gold.gif" alt="goldCoin">
+							<p>1-5</p>
+						</button>
+						<button id="crystal2" class="btn btn-default btn-lg btn-primary crystalBtn">
+							<img class="button" src="assets/images/purp.gif" alt="purpleCoin">
+							<p>6-10</p>
+						</button>
+						<button id="crystal3" class="btn btn-default btn-lg btn-primary crystalBtn">
+							<img class="button" src="assets/images/red.gif" alt="redCoin">
+							<p>11-15</p>
+						</button>
+						<button id="crystal4" class="btn btn-default btn-lg btn-primary crystalBtn">
+							<img class="button" src="assets/images/teal.gif" alt="tealCoin">
+							<p>16-20</p>
+						</button>
+					</div>
+					<div class="row scoreLives">
+						<div class="col col-sm-6">
+							<h1 id="score">0</h1>
+							<p>SCORE</p>
+						</div>
+						<div class="col col-sm-6">
+							<h1 id="lives">10</h1>
+							<p>LIVES</p>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 
 
 <!-- Bootstrap and jQuery CDN -->
